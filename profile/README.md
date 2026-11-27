@@ -52,6 +52,17 @@ Arrows point to what a layer uses, and dependencies go one way only: a facility 
 
 Everything is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
+## Where we are
+
+OpenFacility is at its first shared iteration: the model is public and still moving.
+
+```mermaid
+timeline
+  2026/11 : First shared iteration of OpenFacility on GitHub
+```
+
+Want to shape what comes next? [Join us on Discord](https://discord.gg/TW3TdZkS4z).
+
 ## The model in two graphs
 
 Each box is one node: its role, its [schema.org](https://schema.org) type and an example IRI. The ids are placeholders from the [core examples](https://github.com/openfacility/openfacility-core/tree/HEAD/mapping/examples); `ex:` stands for `https://w3id.org/example/EXAMPLE-`.
