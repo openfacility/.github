@@ -89,7 +89,7 @@ flowchart LR
 
   reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports to source owners"]
   bld["<b>Graph builder</b><br/>harvest · map · validate<br/>with the OpenFacility model and shapes"]
-  kg[("<b>Knowledge graph</b><br/>one named graph per catalogue<br/>SPARQL · index")]
+  kg[("<b>Knowledge graph</b><br/>one named graph per catalogue<br/>Triple store / Index (OpenSearch) / …")]
   ui["<b>UIs and APIs</b><br/>dashboards · search"]
   users(["Users"])
 
