@@ -61,11 +61,11 @@ Each box is one node: its role, its [schema.org](https://schema.org) type and an
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 6}}}%%
 flowchart TB
+  prop["<b>Project</b><br/>ResearchProject<br/>ex:USEROFFICE-PROP-0001"]
   req["<b>Access request</b><br/>ReserveAction<br/>ex:USEROFFICE-REQ-0001"]
   ses["<b>Scheduled session</b><br/>ScheduleAction<br/>ex:USEROFFICE-SCH-0001"]
   exp["<b>Experiment</b><br/>AssessAction<br/>ex:DATACAT-ES-141415"]
   smp["<b>Feature of interest</b><br/>Product<br/>ex:DATACAT-SAMPLE-<br/>141415-0001"]
-  prop["<b>Project</b><br/>ResearchProject<br/>ex:USEROFFICE-PROP-0001"]
   grant["<b>Grant</b><br/>Grant<br/>ex:GRANT-XX-0001"]
   ins["<b>Instrument</b><br/>IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
   ds["<b>Dataset</b><br/>Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
@@ -80,6 +80,7 @@ flowchart TB
   exp -- result --> ds
   exp -- instrument --> ins
   req -- agent --> prop
+  prop ~~~ req
   prop -- funding --> grant
   ds -- funding --> grant
   ali -- sameAs --> ins
