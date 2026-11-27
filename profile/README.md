@@ -59,7 +59,7 @@ OpenFacility is at its first shared iteration: the model is public and still mov
 ```mermaid
 %%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"padding": 6}}}%%
 flowchart LR
-  t1(["<b>2026/Q4</b><br/>First shared iteration on GitHub"]) --> next(( ))
+  t1(["<b>2026/Q4</b><br/>First shared model on GitHub"]) --> next(( ))
   classDef done fill:#0f3a6e,stroke:#0f3a6e,color:#ffffff,font-size:12px
   classDef future fill:transparent,stroke:#9ca3af,stroke-dasharray:4 3
   class t1 done
