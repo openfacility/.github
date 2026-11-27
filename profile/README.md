@@ -56,14 +56,7 @@ Everything is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
 OpenFacility is at its first shared iteration: the model is public and still moving.
 
-```mermaid
-flowchart LR
-  t1(["<b>2026/Q4</b> · First shared iteration of OpenFacility on GitHub"]) --> next(( ))
-  classDef done fill:#0f3a6e,stroke:#0f3a6e,color:#ffffff
-  classDef future fill:transparent,stroke:#9ca3af,stroke-dasharray:4 3
-  class t1 done
-  class next future
-```
+![2026/Q4: first shared iteration of OpenFacility on GitHub](https://img.shields.io/badge/2026%2FQ4-first%20shared%20iteration%20on%20GitHub-0f3a6e)
 
 Want to shape what comes next? [Join us on Discord](https://discord.gg/TW3TdZkS4z).
 
