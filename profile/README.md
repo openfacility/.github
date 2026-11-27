@@ -8,15 +8,35 @@ It names no scientific domain and no facility. It is built in layers:
 - **profiles**: the wording and agreed values of a community, or of a concern several communities share (e.g. scholarly publishing);
 - **facility applications**: one facility's IRIs, source systems and data. Several facilities can share one store.
 
-```
-                 +-- profile (e.g. a community) <- profile -+
-OpenFacility core  <-----+                                          +--  facility application
-   ^             +-- profile (e.g. scholarly) --------------+          |
-   |                                                                   |
-   +------------------------ shared data ------------------------------+   (places, organizations)
+```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 45, "padding": 8}}}%%
+flowchart RL
+  fac["<b>Facility application</b><br/>IRIs · source systems · data"]
+  sub["<b>Profile</b><br/>refines another profile"]
+  comm["<b>Profile</b><br/>e.g. a community"]
+  schol["<b>Profile</b><br/>e.g. scholarly"]
+  core["<b>OpenFacility core</b><br/>model · shapes · tools"]
+  shared[("<b>Shared data</b><br/>places · organizations")]
+
+  fac -- follows --> sub
+  fac -- follows --> schol
+  sub -- isProfileOf --> comm
+  comm -- isProfileOf --> core
+  schol -- isProfileOf --> core
+  fac -- references --> shared
+  shared -- built on --> core
+
+  classDef core fill:#0f3a6e,stroke:#0f3a6e,color:#ffffff
+  classDef profile fill:#e3eefa,stroke:#3b78c4,color:#1f2937
+  classDef facility fill:#fdf0dc,stroke:#d99a2b,color:#1f2937
+  classDef shared fill:#e3f4ea,stroke:#3a9a63,color:#1f2937
+  class core core
+  class sub,comm,schol profile
+  class fac facility
+  class shared shared
 ```
 
-Dependencies go one way only: a facility uses its profiles and the core, a profile uses its parents and the core, the core uses nothing. Every source is a `schema:DataCatalog`, and everything a source says about a thing is in that thing's record in the catalogue.
+Arrows point to what a layer uses, and dependencies go one way only: a facility uses its profiles and the core, a profile uses its parents and the core, the core uses nothing. Profiles form a graph without cycles (W3C DXPROF `prof:isProfileOf`), not a tree. Every source is a `schema:DataCatalog`, and everything a source says about a thing is in that thing's record in the catalogue.
 
 IRIs live under `https://w3id.org/fifi/`. Everything is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
