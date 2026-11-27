@@ -61,19 +61,19 @@ Each box is one node: its role, its [schema.org](https://schema.org) type and an
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 6}}}%%
 flowchart TB
-  prop["<b>Project</b><br/>ResearchProject<br/>ex:USEROFFICE-PROP-0001"]
-  req["<b>Access request</b><br/>ReserveAction<br/>ex:USEROFFICE-REQ-0001"]
-  ses["<b>Scheduled session</b><br/>ScheduleAction<br/>ex:USEROFFICE-SCH-0001"]
-  exp["<b>Experiment</b><br/>AssessAction<br/>ex:DATACAT-ES-141415"]
-  smp["<b>Feature of interest</b><br/>Product<br/>ex:DATACAT-SAMPLE-<br/>141415-0001"]
-  grant["<b>Grant</b><br/>Grant<br/>ex:GRANT-XX-0001"]
-  ins["<b>Instrument</b><br/>IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
-  ds["<b>Dataset</b><br/>Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
-  ali["<b>Aliases, groups</b><br/>ProductGroup<br/>ex:LIB-INSTR-XX2"]
-  role["<b>Role, affiliation</b><br/>OrganizationRole<br/>blank node, no @id"]
-  per["<b>Person</b><br/>Person<br/>ex:USEROFFICE-USER-0001"]
-  org["<b>Organization</b><br/>Organization<br/>ror:000000000"]
-  pla["<b>Place</b><br/>City, Country<br/>geonames:2988507"]
+  prop["<b>Project</b><br/>schema:ResearchProject<br/>ex:USEROFFICE-PROP-0001"]
+  req["<b>Access request</b><br/>schema:ReserveAction<br/>ex:USEROFFICE-REQ-0001"]
+  ses["<b>Scheduled session</b><br/>schema:ScheduleAction<br/>ex:USEROFFICE-SCH-0001"]
+  exp["<b>Experiment</b><br/>schema:AssessAction<br/>ex:DATACAT-ES-141415"]
+  smp["<b>Feature of interest</b><br/>schema:Product<br/>ex:DATACAT-SAMPLE-<br/>141415-0001"]
+  grant["<b>Grant</b><br/>schema:Grant<br/>ex:GRANT-XX-0001"]
+  ins["<b>Instrument</b><br/>schema:IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
+  ds["<b>Dataset</b><br/>schema:Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
+  ali["<b>Aliases, groups</b><br/>schema:ProductGroup<br/>ex:LIB-INSTR-XX2"]
+  role["<b>Role, affiliation</b><br/>schema:OrganizationRole<br/>blank node, no @id"]
+  per["<b>Person</b><br/>schema:Person<br/>ex:USEROFFICE-USER-0001"]
+  org["<b>Organization</b><br/>schema:Organization<br/>ror:000000000"]
+  pla["<b>Place</b><br/>schema:City, schema:Country<br/>geonames:2988507"]
 
   req -- result --> ses -- result --> exp
   exp -- object --> smp
@@ -112,19 +112,19 @@ This graph adds the [scholarly profile](https://github.com/openfacility/openfaci
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 6}}}%%
 flowchart LR
-  pub["<b>Publication</b><br/>ScholarlyArticle<br/>doi:10.0000/<br/>example-article-0001"]
-  evt["<b>Book or event</b><br/>PublicationEvent<br/>doi:10.0000/<br/>example-event-0001"]
-  jou["<b>Journal</b><br/>Periodical<br/>issnl:0000-0000"]
-  idf["<b>Identifiers</b><br/>PropertyValue<br/>blank node, no @id"]
-  grant["<b>Grant</b><br/>Grant<br/>ex:GRANT-XX-0010"]
-  ali["<b>Library alias</b><br/>IndividualProduct<br/>ex:LIB-INSTR-XX2"]
-  ins["<b>Instrument</b><br/>IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
-  ds["<b>Dataset</b><br/>Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
-  arole["<b>Author role</b><br/>OrganizationRole<br/>blank node, no @id"]
-  aut["<b>Author</b><br/>Person<br/>openalex:A0000000000"]
-  aff["<b>Affiliation</b><br/>Organization<br/>blank node, no @id"]
-  inst["<b>Institution</b><br/>Organization<br/>ror:000000001"]
-  city["<b>City</b><br/>City<br/>geonames:3143244"]
+  pub["<b>Publication</b><br/>schema:ScholarlyArticle<br/>doi:10.0000/<br/>example-article-0001"]
+  evt["<b>Book or event</b><br/>schema:PublicationEvent<br/>doi:10.0000/<br/>example-event-0001"]
+  jou["<b>Journal</b><br/>schema:Periodical<br/>issnl:0000-0000"]
+  idf["<b>Identifiers</b><br/>schema:PropertyValue<br/>blank node, no @id"]
+  grant["<b>Grant</b><br/>schema:Grant<br/>ex:GRANT-XX-0010"]
+  ali["<b>Library alias</b><br/>schema:IndividualProduct<br/>ex:LIB-INSTR-XX2"]
+  ins["<b>Instrument</b><br/>schema:IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
+  ds["<b>Dataset</b><br/>schema:Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
+  arole["<b>Author role</b><br/>schema:OrganizationRole<br/>blank node, no @id"]
+  aut["<b>Author</b><br/>schema:Person<br/>openalex:A0000000000"]
+  aff["<b>Affiliation</b><br/>schema:Organization<br/>blank node, no @id"]
+  inst["<b>Institution</b><br/>schema:Organization<br/>ror:000000001"]
+  city["<b>City</b><br/>schema:City<br/>geonames:3143244"]
 
   pub -- isPartOf --> evt
   pub -- isPartOf --> jou
