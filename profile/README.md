@@ -22,25 +22,26 @@ IRIs live under `https://w3id.org/fifi/`. Everything is [CC0 1.0](https://creati
 
 ## The model in two graphs
 
-Each box is one node: its role, its schema.org type and an example IRI. The ids are placeholders from the [core examples](https://github.com/openfacility/openfacility-core/tree/HEAD/mapping/examples).
+Each box is one node: its role, its [schema.org](https://schema.org) type and an example IRI. The ids are placeholders from the [core examples](https://github.com/openfacility/openfacility-core/tree/HEAD/mapping/examples); `ex:` stands for `https://w3id.org/example/EXAMPLE-`.
 
 ### A facility: from request to data
 
 ```mermaid
-flowchart LR
-  req["<b>Access request</b><br/>schema:ReserveAction<br/>w3id:EXAMPLE-USEROFFICE-REQ-0001"]
-  ses["<b>Scheduled session</b><br/>schema:ScheduleAction<br/>w3id:EXAMPLE-USEROFFICE-SCH-0001"]
-  exp["<b>Experiment</b><br/>schema:AssessAction<br/>w3id:EXAMPLE-DATACAT-ES-141415"]
-  smp["<b>Sample</b><br/>schema:Product<br/>w3id:EXAMPLE-DATACAT-SAMPLE-141415-0001"]
-  prop["<b>Proposal</b><br/>schema:ResearchProject<br/>w3id:EXAMPLE-USEROFFICE-PROP-0001"]
-  grant["<b>Grant</b><br/>schema:Grant<br/>w3id:EXAMPLE-GRANT-XX-0001"]
-  ins["<b>Instrument</b><br/>schema:IndividualProduct<br/>doi:10.0000/example-instr-0001"]
-  ds["<b>Dataset</b><br/>schema:Dataset<br/>doi:10.0000/example-session-dataset-141415"]
-  ali["<b>Aliases, groups</b><br/>schema:ProductGroup<br/>w3id:EXAMPLE-LIB-INSTR-XX2"]
-  role["<b>Role, affiliation</b><br/>schema:OrganizationRole<br/>blank node, no @id"]
-  per["<b>Person</b><br/>schema:Person<br/>w3id:EXAMPLE-USEROFFICE-USER-0001"]
-  org["<b>Organization</b><br/>schema:Organization<br/>ror:000000000"]
-  pla["<b>Place</b><br/>schema:City, schema:Country<br/>geonames:2988507"]
+%%{init: {"flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 6}}}%%
+flowchart TB
+  req["<b>Access request</b><br/>ReserveAction<br/>ex:USEROFFICE-REQ-0001"]
+  ses["<b>Scheduled session</b><br/>ScheduleAction<br/>ex:USEROFFICE-SCH-0001"]
+  exp["<b>Experiment</b><br/>AssessAction<br/>ex:DATACAT-ES-141415"]
+  smp["<b>Sample</b><br/>Product<br/>ex:DATACAT-SAMPLE-<br/>141415-0001"]
+  prop["<b>Proposal</b><br/>ResearchProject<br/>ex:USEROFFICE-PROP-0001"]
+  grant["<b>Grant</b><br/>Grant<br/>ex:GRANT-XX-0001"]
+  ins["<b>Instrument</b><br/>IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
+  ds["<b>Dataset</b><br/>Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
+  ali["<b>Aliases, groups</b><br/>ProductGroup<br/>ex:LIB-INSTR-XX2"]
+  role["<b>Role, affiliation</b><br/>OrganizationRole<br/>blank node, no @id"]
+  per["<b>Person</b><br/>Person<br/>ex:USEROFFICE-USER-0001"]
+  org["<b>Organization</b><br/>Organization<br/>ror:000000000"]
+  pla["<b>Place</b><br/>City, Country<br/>geonames:2988507"]
 
   req -- result --> ses -- result --> exp
   exp -- object --> smp
@@ -76,20 +77,21 @@ Colours: red, sessions and samples · orange, proposals and grants · grey, inst
 This graph adds the [scholarly profile](https://github.com/openfacility/openfacility-profile-scholarly) to the core.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 6}}}%%
 flowchart LR
-  pub["<b>Publication</b><br/>schema:ScholarlyArticle<br/>doi:10.0000/example-article-0001"]
-  evt["<b>Book or event</b><br/>schema:PublicationEvent<br/>doi:10.0000/example-event-0001"]
-  jou["<b>Journal</b><br/>schema:Periodical<br/>issnl:0000-0000"]
-  idf["<b>Identifiers</b><br/>schema:PropertyValue<br/>blank node, no @id"]
-  grant["<b>Grant</b><br/>schema:Grant<br/>w3id:EXAMPLE-GRANT-XX-0010"]
-  ali["<b>Library alias</b><br/>schema:IndividualProduct<br/>w3id:EXAMPLE-LIB-INSTR-XX2"]
-  ins["<b>Instrument</b><br/>schema:IndividualProduct<br/>doi:10.0000/example-instr-0001"]
-  ds["<b>Dataset</b><br/>schema:Dataset<br/>doi:10.0000/example-session-dataset-141415"]
-  arole["<b>Author role</b><br/>schema:OrganizationRole<br/>blank node, no @id"]
-  aut["<b>Author</b><br/>schema:Person<br/>openalex:A0000000000"]
-  aff["<b>Affiliation</b><br/>schema:Organization<br/>blank node, no @id"]
-  inst["<b>Institution</b><br/>schema:Organization<br/>ror:000000001"]
-  city["<b>City</b><br/>schema:City<br/>geonames:3143244"]
+  pub["<b>Publication</b><br/>ScholarlyArticle<br/>doi:10.0000/<br/>example-article-0001"]
+  evt["<b>Book or event</b><br/>PublicationEvent<br/>doi:10.0000/<br/>example-event-0001"]
+  jou["<b>Journal</b><br/>Periodical<br/>issnl:0000-0000"]
+  idf["<b>Identifiers</b><br/>PropertyValue<br/>blank node, no @id"]
+  grant["<b>Grant</b><br/>Grant<br/>ex:GRANT-XX-0010"]
+  ali["<b>Library alias</b><br/>IndividualProduct<br/>ex:LIB-INSTR-XX2"]
+  ins["<b>Instrument</b><br/>IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
+  ds["<b>Dataset</b><br/>Dataset<br/>doi:10.0000/<br/>example-session-dataset-141415"]
+  arole["<b>Author role</b><br/>OrganizationRole<br/>blank node, no @id"]
+  aut["<b>Author</b><br/>Person<br/>openalex:A0000000000"]
+  aff["<b>Affiliation</b><br/>Organization<br/>blank node, no @id"]
+  inst["<b>Institution</b><br/>Organization<br/>ror:000000001"]
+  city["<b>City</b><br/>City<br/>geonames:3143244"]
 
   pub -- isPartOf --> evt
   pub -- isPartOf --> jou
