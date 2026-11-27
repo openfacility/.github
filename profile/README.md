@@ -50,7 +50,7 @@ flowchart RL
 
 Arrows point to what a layer uses, and dependencies go one way only: a facility uses its profiles and the core, a profile uses its parents and the core, the core uses nothing. Profiles form a graph without cycles (W3C DXPROF `prof:isProfileOf`), not a tree. Every source is a `schema:DataCatalog`, and everything a source says about a thing is in that thing's record in the catalogue.
 
-IRIs live under `https://w3id.org/fifi/`. Everything is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+Everything is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
 ## The model in two graphs
 
