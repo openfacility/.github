@@ -1,6 +1,6 @@
 # OpenFacility
 
-**A knowledge graph model for research facilities.** OpenFacility is a schema.org application profile for any research facility: its instruments, projects, sessions and schedules, samples, datasets and publications, the people and organizations around them, and the sources they come from. It comes with SHACL validation rules, a store layout and the tools to build and check the data.
+**A knowledge graph model for research facilities.** OpenFacility is a schema.org application profile for any research facility: its instruments, projects, sessions and schedules, features of interest, datasets and publications, the people and organizations around them, and the sources they come from. It comes with SHACL validation rules, a store layout and the tools to build and check the data.
 
 It names no scientific domain and no facility. It is built in layers:
 
