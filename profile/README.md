@@ -32,7 +32,7 @@ flowchart TB
   req["<b>Access request</b><br/>ReserveAction<br/>ex:USEROFFICE-REQ-0001"]
   ses["<b>Scheduled session</b><br/>ScheduleAction<br/>ex:USEROFFICE-SCH-0001"]
   exp["<b>Experiment</b><br/>AssessAction<br/>ex:DATACAT-ES-141415"]
-  smp["<b>Sample</b><br/>Product<br/>ex:DATACAT-SAMPLE-<br/>141415-0001"]
+  smp["<b>Feature of interest</b><br/>Product<br/>ex:DATACAT-SAMPLE-<br/>141415-0001"]
   prop["<b>Proposal</b><br/>ResearchProject<br/>ex:USEROFFICE-PROP-0001"]
   grant["<b>Grant</b><br/>Grant<br/>ex:GRANT-XX-0001"]
   ins["<b>Instrument</b><br/>IndividualProduct<br/>doi:10.0000/<br/>example-instr-0001"]
@@ -70,7 +70,7 @@ flowchart TB
   class pla place
 ```
 
-Colours: red, sessions and samples · orange, proposals and grants · grey, instruments · purple, datasets · white, people and organizations · green, places.
+Colours: red, sessions and features of interest · orange, proposals and grants · grey, instruments · purple, datasets · white, people and organizations · green, places.
 
 ### A publication and what it links to
 
