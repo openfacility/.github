@@ -1,4 +1,14 @@
-# OpenFacility
+<h1>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/openfacility/.github/main/assets/openfacility-logo-white.png">
+    <img src="https://raw.githubusercontent.com/openfacility/.github/main/assets/openfacility-logo-navy.png" alt="" height="72" align="middle">
+  </picture>
+  &nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/openfacility/.github/main/assets/openfacility-wordmark-white.png">
+    <img src="https://raw.githubusercontent.com/openfacility/.github/main/assets/openfacility-wordmark-navy.png" alt="OpenFacility" height="44" align="middle">
+  </picture>
+</h1>
 
 **A knowledge graph model for research facilities.** OpenFacility is a schema.org application profile for any research facility: its instruments, projects, sessions and schedules, features of interest, datasets and publications, the people and organizations around them, and the sources they come from. It comes with SHACL validation rules, a store layout and the tools to build and check the data.
 
