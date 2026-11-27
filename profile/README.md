@@ -73,20 +73,20 @@ Want to shape what comes next? [Join us on Discord](https://discord.gg/TW3TdZkS4
 Each source system of a facility is a `schema:DataCatalog` that the facility publishes, and every item belongs to a catalogue through its record. The builder harvests each catalogue into its own named graph and validates it against the OpenFacility shapes; the store aggregates them, next to the shared catalogues every facility uses.
 
 ```mermaid
-%%{init: {"flowchart": {"nodeSpacing": 16, "rankSpacing": 32, "padding": 6}}}%%
-flowchart TB
+%%{init: {"themeVariables": {"fontSize": "13px"}, "flowchart": {"nodeSpacing": 14, "rankSpacing": 32, "padding": 6}}}%%
+flowchart LR
   subgraph fac["Facility catalogues"]
-    direction TB
-    uo[("<b>User#nbsp;office</b><br/>projects#nbsp;·#nbsp;sessions#nbsp;·#nbsp;people")]
-    dc[("<b>Data#nbsp;catalogue</b><br/>datasets#nbsp;·#nbsp;features#nbsp;of#nbsp;interest")]
-    ic[("<b>Instrument#nbsp;catalogue</b><br/>instruments#nbsp;·#nbsp;aliases")]
-    lib[("<b>Publications#nbsp;library</b><br/>works#nbsp;of#nbsp;the#nbsp;facility")]
+    direction LR
+    uo["<b>User#nbsp;office</b><br/>projects#nbsp;·#nbsp;sessions#nbsp;·#nbsp;people"]
+    dc["<b>Data#nbsp;catalogue</b><br/>datasets#nbsp;·#nbsp;features#nbsp;of#nbsp;interest"]
+    ic["<b>Instrument#nbsp;catalogue</b><br/>instruments#nbsp;·#nbsp;aliases"]
+    lib["<b>Publications#nbsp;library</b><br/>works#nbsp;of#nbsp;the#nbsp;facility"]
   end
   subgraph shr["Shared catalogues"]
-    direction TB
-    pl[("<b>Places</b><br/>GeoNames#nbsp;·#nbsp;Wikidata")]
-    og[("<b>Organizations</b><br/>ROR")]
-    ext[("<b>Open#nbsp;scholarly#nbsp;sources</b><br/>OpenAlex#nbsp;·#nbsp;Crossref")]
+    direction LR
+    pl["<b>Places</b><br/>GeoNames#nbsp;·#nbsp;Wikidata"]
+    og["<b>Organizations</b><br/>ROR"]
+    ext["<b>Open#nbsp;scholarly#nbsp;sources</b><br/>OpenAlex#nbsp;·#nbsp;Crossref"]
   end
 
   reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports"]
@@ -99,8 +99,6 @@ flowchart TB
   admin(["Admin"])
   users(["Users"])
 
-  uo ~~~ dc ~~~ ic ~~~ lib
-  pl ~~~ og ~~~ ext
   fac --> reg
   shr --> reg
   reg --> bld --> kg --> ui --> users
