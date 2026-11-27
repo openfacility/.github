@@ -73,18 +73,18 @@ Want to shape what comes next? [Join us on Discord](https://discord.gg/TW3TdZkS4
 Each source system of a facility is a `schema:DataCatalog` that the facility publishes, and every item belongs to a catalogue through its record. The builder harvests each catalogue into its own named graph and validates it against the OpenFacility shapes; the store aggregates them, next to the shared catalogues every facility uses.
 
 ```mermaid
-%%{init: {"themeVariables": {"fontSize": "13px"}, "flowchart": {"nodeSpacing": 10, "rankSpacing": 36, "padding": 6}}}%%
+%%{init: {"themeVariables": {"fontSize": "13px"}, "flowchart": {"nodeSpacing": 6, "rankSpacing": 22, "padding": 4, "diagramPadding": 4}}}%%
 flowchart LR
   subgraph shr["Shared catalogues"]
-    pl["<b>Places</b> · cities and countries from GeoNames, Wikidata"]
-    og["<b>Organizations</b> · affiliations, funders and publishers from ROR"]
-    ext["<b>Scholarly sources</b> · works and citations from OpenAlex, Crossref"]
+    pl["<b>Places</b><br/>cities,#nbsp;countries#nbsp;·#nbsp;GeoNames,#nbsp;Wikidata"]
+    og["<b>Organizations</b><br/>#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;affiliations,#nbsp;funders#nbsp;·#nbsp;ROR#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"]
+    ext["<b>Scholarly#nbsp;sources</b><br/>#nbsp;works,#nbsp;citations#nbsp;·#nbsp;OpenAlex,#nbsp;Crossref#nbsp;#nbsp;"]
   end
   subgraph fac["Facility catalogues"]
-    uo["<b>User office</b> · projects, sessions, people"]
-    dc["<b>Data catalogue</b> · datasets, features of interest"]
-    ic["<b>Instrument catalogue</b> · instruments, aliases"]
-    lib["<b>Publications library</b> · works of the facility"]
+    uo["<b>User#nbsp;office</b><br/>#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;projects,#nbsp;sessions,#nbsp;people#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"]
+    dc["<b>Data#nbsp;catalogue</b><br/>#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;datasets,#nbsp;features#nbsp;of#nbsp;interest#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"]
+    ic["<b>Instrument#nbsp;catalogue</b><br/>#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;instruments,#nbsp;aliases#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"]
+    lib["<b>Publications#nbsp;library</b><br/>#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;works#nbsp;of#nbsp;the#nbsp;facility#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;#nbsp;"]
   end
 
   reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports to source owners"]
