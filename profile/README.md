@@ -75,18 +75,18 @@ Each source system of a facility is a `schema:DataCatalog` that the facility pub
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 16, "rankSpacing": 32, "padding": 6}}}%%
 flowchart TB
-  subgraph fac["Facility: its own catalogues · schema:DataCatalog"]
+  subgraph fac["Facility catalogues"]
     direction TB
-    uo[("<b>User office</b><br/>projects · sessions · people")]
-    dc[("<b>Data catalogue</b><br/>datasets · features of interest")]
-    ic[("<b>Instrument catalogue</b><br/>instruments · aliases")]
-    lib[("<b>Publications library</b><br/>works of the facility")]
+    uo[("<b>User#nbsp;office</b><br/>projects#nbsp;·#nbsp;sessions#nbsp;·#nbsp;people")]
+    dc[("<b>Data#nbsp;catalogue</b><br/>datasets#nbsp;·#nbsp;features#nbsp;of#nbsp;interest")]
+    ic[("<b>Instrument#nbsp;catalogue</b><br/>instruments#nbsp;·#nbsp;aliases")]
+    lib[("<b>Publications#nbsp;library</b><br/>works#nbsp;of#nbsp;the#nbsp;facility")]
   end
-  subgraph shr["Shared catalogues · schema:DataCatalog"]
+  subgraph shr["Shared catalogues"]
     direction TB
-    pl[("<b>Places</b><br/>GeoNames · Wikidata")]
+    pl[("<b>Places</b><br/>GeoNames#nbsp;·#nbsp;Wikidata")]
     og[("<b>Organizations</b><br/>ROR")]
-    ext[("<b>Open scholarly sources</b><br/>OpenAlex · Crossref")]
+    ext[("<b>Open#nbsp;scholarly#nbsp;sources</b><br/>OpenAlex#nbsp;·#nbsp;Crossref")]
   end
 
   reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports"]
