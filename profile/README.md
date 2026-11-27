@@ -73,38 +73,28 @@ Want to shape what comes next? [Join us on Discord](https://discord.gg/TW3TdZkS4
 Each source system of a facility is a `schema:DataCatalog` that the facility publishes, and every item belongs to a catalogue through its record. The builder harvests each catalogue into its own named graph and validates it against the OpenFacility shapes; the store aggregates them, next to the shared catalogues every facility uses.
 
 ```mermaid
-%%{init: {"themeVariables": {"fontSize": "13px"}, "flowchart": {"nodeSpacing": 14, "rankSpacing": 32, "padding": 6}}}%%
+%%{init: {"themeVariables": {"fontSize": "13px"}, "flowchart": {"nodeSpacing": 10, "rankSpacing": 36, "padding": 6}}}%%
 flowchart LR
-  subgraph fac["Facility catalogues"]
-    direction LR
-    uo["<b>User#nbsp;office</b><br/>projects#nbsp;·#nbsp;sessions#nbsp;·#nbsp;people"]
-    dc["<b>Data#nbsp;catalogue</b><br/>datasets#nbsp;·#nbsp;features#nbsp;of#nbsp;interest"]
-    ic["<b>Instrument#nbsp;catalogue</b><br/>instruments#nbsp;·#nbsp;aliases"]
-    lib["<b>Publications#nbsp;library</b><br/>works#nbsp;of#nbsp;the#nbsp;facility"]
-  end
   subgraph shr["Shared catalogues"]
-    direction LR
-    pl["<b>Places</b><br/>GeoNames#nbsp;·#nbsp;Wikidata"]
-    og["<b>Organizations</b><br/>ROR"]
-    ext["<b>Open#nbsp;scholarly#nbsp;sources</b><br/>OpenAlex#nbsp;·#nbsp;Crossref"]
+    pl["<b>Places</b> · cities and countries from GeoNames, Wikidata"]
+    og["<b>Organizations</b> · affiliations, funders and publishers from ROR"]
+    ext["<b>Scholarly sources</b> · works and citations from OpenAlex, Crossref"]
+  end
+  subgraph fac["Facility catalogues"]
+    uo["<b>User office</b> · projects, sessions, people"]
+    dc["<b>Data catalogue</b> · datasets, features of interest"]
+    ic["<b>Instrument catalogue</b> · instruments, aliases"]
+    lib["<b>Publications library</b> · works of the facility"]
   end
 
-  reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports"]
-  bld["<b>Graph builder</b><br/>harvest · map · validate"]
+  reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports to source owners"]
+  bld["<b>Graph builder</b><br/>harvest · map · validate<br/>with the OpenFacility model and shapes"]
   kg[("<b>Knowledge graph</b><br/>one named graph per catalogue<br/>SPARQL · index")]
   ui["<b>UIs and APIs</b><br/>dashboards · search"]
-  of["<b>OpenFacility</b><br/>model · shapes · shared data"]
-
-  owners(["Source owners"])
-  admin(["Admin"])
   users(["Users"])
 
-  fac --> reg
-  shr --> reg
+  pl & og & ext & uo & dc & ic & lib --> reg
   reg --> bld --> kg --> ui --> users
-  reg -. feedback .-> owners
-  admin -. monitors .-> bld
-  of -. model and shapes .-> bld
 
   classDef project fill:#fdf0dc,stroke:#d99a2b,color:#1f2937
   classDef dataset fill:#efe7f7,stroke:#8b5cc4,color:#1f2937
@@ -113,7 +103,6 @@ flowchart LR
   classDef place fill:#e3f4ea,stroke:#3a9a63,color:#1f2937
   classDef agent fill:#ffffff,stroke:#1e3a5f,color:#1f2937
   classDef comp fill:#f6f8fa,stroke:#1e3a5f,color:#1f2937
-  classDef core fill:#0f3a6e,stroke:#0f3a6e,color:#ffffff
   classDef people fill:#1e3a5f,stroke:#1e3a5f,color:#ffffff
   class uo project
   class dc dataset
@@ -122,8 +111,7 @@ flowchart LR
   class pl place
   class og agent
   class reg,bld,kg,ui comp
-  class of core
-  class owners,admin,users people
+  class users people
 ```
 
 Each catalogue has the colour of what it holds in the model graphs below: orange, projects · purple, datasets · grey, instruments · blue, publications · green, places · white, organizations.
