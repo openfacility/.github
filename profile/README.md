@@ -68,6 +68,68 @@ flowchart LR
 
 Want to shape what comes next? [Join us on Discord](https://discord.gg/TW3TdZkS4z).
 
+## A facility is a set of catalogues
+
+Each source system of a facility is a `schema:DataCatalog` that the facility publishes, and every item belongs to a catalogue through its record. The builder harvests each catalogue into its own named graph and validates it against the OpenFacility shapes; the store aggregates them, next to the shared catalogues every facility uses.
+
+```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 16, "rankSpacing": 32, "padding": 6}}}%%
+flowchart TB
+  subgraph fac["Facility: its own catalogues · schema:DataCatalog"]
+    direction TB
+    uo[("<b>User office</b><br/>projects · sessions · people")]
+    dc[("<b>Data catalogue</b><br/>datasets · features of interest")]
+    ic[("<b>Instrument catalogue</b><br/>instruments · aliases")]
+    lib[("<b>Publications library</b><br/>works of the facility")]
+  end
+  subgraph shr["Shared catalogues · schema:DataCatalog"]
+    direction TB
+    pl[("<b>Places</b><br/>GeoNames · Wikidata")]
+    og[("<b>Organizations</b><br/>ROR")]
+    ext[("<b>Open scholarly sources</b><br/>OpenAlex · Crossref")]
+  end
+
+  reg["<b>Source registry</b><br/>contracts · crawl schedules<br/>quality reports"]
+  bld["<b>Graph builder</b><br/>harvest · map · validate"]
+  kg[("<b>Knowledge graph</b><br/>one named graph per catalogue<br/>SPARQL · index")]
+  ui["<b>UIs and APIs</b><br/>dashboards · search"]
+  of["<b>OpenFacility</b><br/>model · shapes · shared data"]
+
+  owners(["Source owners"])
+  admin(["Admin"])
+  users(["Users"])
+
+  uo ~~~ dc ~~~ ic ~~~ lib
+  pl ~~~ og ~~~ ext
+  fac --> reg
+  shr --> reg
+  reg --> bld --> kg --> ui --> users
+  reg -. feedback .-> owners
+  admin -. monitors .-> bld
+  of -. model and shapes .-> bld
+
+  classDef project fill:#fdf0dc,stroke:#d99a2b,color:#1f2937
+  classDef dataset fill:#efe7f7,stroke:#8b5cc4,color:#1f2937
+  classDef instrument fill:#eceef2,stroke:#6b7280,color:#1f2937
+  classDef publication fill:#e3eefa,stroke:#3b78c4,color:#1f2937
+  classDef place fill:#e3f4ea,stroke:#3a9a63,color:#1f2937
+  classDef agent fill:#ffffff,stroke:#1e3a5f,color:#1f2937
+  classDef comp fill:#f6f8fa,stroke:#1e3a5f,color:#1f2937
+  classDef core fill:#0f3a6e,stroke:#0f3a6e,color:#ffffff
+  classDef people fill:#1e3a5f,stroke:#1e3a5f,color:#ffffff
+  class uo project
+  class dc dataset
+  class ic instrument
+  class lib,ext publication
+  class pl place
+  class og agent
+  class reg,bld,kg,ui comp
+  class of core
+  class owners,admin,users people
+```
+
+Each catalogue has the colour of what it holds in the model graphs below: orange, projects · purple, datasets · grey, instruments · blue, publications · green, places · white, organizations.
+
 ## The model in two graphs
 
 Each box is one node: its role, its [schema.org](https://schema.org) type and an example IRI. The ids are placeholders from the [core examples](https://github.com/openfacility/openfacility-core/tree/HEAD/mapping/examples); `ex:` stands for `https://w3id.org/example/EXAMPLE-`.
